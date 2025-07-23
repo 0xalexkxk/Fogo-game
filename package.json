@@ -1,0 +1,19 @@
+{
+  "name": "flame-runner",
+  "version": "1.0.0",
+  "description": "Flame Runner - A fast-paced browser game",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "build": "echo 'No build step required for this project'",
+    "install-server": "cd server && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0xalexkxk/Fogo-game.git"
+  },
+  "keywords": ["game", "browser", "javascript", "html5"],
+  "author": "0xalexkxk",
+  "license": "MIT"
+}
