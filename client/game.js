@@ -411,12 +411,12 @@ function loadImages() {
     catSprites.openMouth = openMouthImg;
     
     // Load dog house sprite
-    trashCanSprite.src = 'kamen-Photoroom.png';
+    trashCanSprite.src = 'kamenii.png';
     trashCanSprite.onload = () => {
-        console.log('Loaded kamen-Photoroom.png');
+        console.log('Loaded kamenii.png');
     };
     trashCanSprite.onerror = () => {
-        console.error('Failed to load kamen-Photoroom.png');
+        console.error('Failed to load kamenii.png');
     };
     
     // Load rotating knife sprite
@@ -429,12 +429,12 @@ function loadImages() {
     };
     
     // Load fire sprite
-    coffeeMugSprite.src = 'fire-Photoroom.png?' + Date.now(); // Add cache busting
+    coffeeMugSprite.src = 'fiire.png?' + Date.now(); // Add cache busting
     coffeeMugSprite.onload = () => {
-        console.log('✅ Successfully loaded fire-Photoroom.png - Size:', coffeeMugSprite.width, 'x', coffeeMugSprite.height);
+        console.log('✅ Successfully loaded fiire.png - Size:', coffeeMugSprite.width, 'x', coffeeMugSprite.height);
     };
     coffeeMugSprite.onerror = () => {
-        console.error('❌ Failed to load fire-Photoroom.png from path: fire-Photoroom.png');
+        console.error('❌ Failed to load fiire.png from path: fiire.png');
     };
     
     // Load ball sprite for XP collectibles
