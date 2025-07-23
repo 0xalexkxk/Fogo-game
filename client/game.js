@@ -163,9 +163,9 @@ if (isMobile) {
 // Flame Runner branding images
 const brandingImages = [];
 const brandImageNames = [
-    'sentient-logo.png',
-    'sentient-banner.png',
-    'sentient-logo.png'
+    'fogo-logo.png',
+    'fogo-logo.png',
+    'fogo-logo.png'
 ];
 
 // New branding image for levels 2+
@@ -467,12 +467,12 @@ function loadImages() {
     */
     
     // Load new branding image
-    newBrandingImage.src = 'sentient-banner.png';
+    newBrandingImage.src = 'fogo-logo.png';
     newBrandingImage.onload = () => {
-        console.log('Loaded sentient-banner.png');
+        console.log('Loaded fogo-logo.png');
     };
     newBrandingImage.onerror = () => {
-        console.error('Failed to load sentient-banner.png');
+        console.error('Failed to load fogo-logo.png');
     };
 }
 
