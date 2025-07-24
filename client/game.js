@@ -213,8 +213,12 @@ const trashCanSprite = new Image();
 // Rotating knife sprite (replaces spoons)
 const rotatingKnifeSprite = new Image();
 
-// Bone sprite (replaces coffeepot)
-const coffeeMugSprite = new Image();
+// Cat sprites (replaces coffeepot obstacle with animated cat)
+const closedMouthSprite = new Image();
+const openMouthSprite = new Image();
+
+// Fire sprite for collectible teacups
+const fireCollectibleSprite = new Image();
 
 // Ball sprite for XP collectibles
 const ballSprite = new Image();
@@ -428,13 +432,30 @@ function loadImages() {
         console.error('Failed to load kapli.png');
     };
     
-    // Load fire sprite
-    coffeeMugSprite.src = 'fiire.png?' + Date.now(); // Add cache busting
-    coffeeMugSprite.onload = () => {
-        console.log('✅ Successfully loaded fiire.png - Size:', coffeeMugSprite.width, 'x', coffeeMugSprite.height);
+    // Load cat sprites for animation
+    closedMouthSprite.src = 'closedmouth.png?' + Date.now(); // Add cache busting
+    closedMouthSprite.onload = () => {
+        console.log('✅ Successfully loaded closedmouth.png - Size:', closedMouthSprite.width, 'x', closedMouthSprite.height);
     };
-    coffeeMugSprite.onerror = () => {
-        console.error('❌ Failed to load fiire.png from path: fiire.png');
+    closedMouthSprite.onerror = () => {
+        console.error('❌ Failed to load closedmouth.png');
+    };
+    
+    openMouthSprite.src = 'openmouth.png?' + Date.now(); // Add cache busting
+    openMouthSprite.onload = () => {
+        console.log('✅ Successfully loaded openmouth.png - Size:', openMouthSprite.width, 'x', openMouthSprite.height);
+    };
+    openMouthSprite.onerror = () => {
+        console.error('❌ Failed to load openmouth.png');
+    };
+    
+    // Load fire sprite for collectibles
+    fireCollectibleSprite.src = 'fiire.png?' + Date.now(); // Add cache busting
+    fireCollectibleSprite.onload = () => {
+        console.log('✅ Successfully loaded fiire.png for collectibles - Size:', fireCollectibleSprite.width, 'x', fireCollectibleSprite.height);
+    };
+    fireCollectibleSprite.onerror = () => {
+        console.error('❌ Failed to load fiire.png for collectibles');
     };
     
     // Load ball sprite for XP collectibles
@@ -1140,8 +1161,14 @@ class Obstacle {
                 
             case 'coffeepot':
                 if (!this.destroyed) {
-                    // Draw fire sprite
-                    ctx.drawImage(coffeeMugSprite, this.x, this.y, this.width, this.height);
+                    // Animated cat - alternates between open and closed mouth
+                    const animationSpeed = 30; // Change every 30 frames (0.5 seconds at 60fps)
+                    const frame = Math.floor(gameState.gameTime / animationSpeed) % 2;
+                    const catSprite = frame === 0 ? closedMouthSprite : openMouthSprite;
+                    
+                    if (catSprite && catSprite.complete) {
+                        ctx.drawImage(catSprite, this.x, this.y, this.width, this.height);
+                    }
                 }
                 break;
                 
@@ -1413,7 +1440,7 @@ class Collectible {
             // Coffee mug collectible
             const cupY = this.y + bounceOffset;
             
-            // Make fire sprite 18% bigger (1.16 * 1.18 = 1.37)
+            // Make fire collectible 18% bigger (1.16 * 1.18 = 1.37)
             const scaleFactor = 1.37;
             const newWidth = this.width * scaleFactor;
             const newHeight = this.height * scaleFactor;
@@ -1421,7 +1448,7 @@ class Collectible {
             const offsetY = (newHeight - this.height) / 2;
             
             // Draw fire sprite with increased size
-            ctx.drawImage(coffeeMugSprite, this.x - offsetX, cupY - offsetY, newWidth, newHeight);
+            ctx.drawImage(fireCollectibleSprite, this.x - offsetX, cupY - offsetY, newWidth, newHeight);
             
             // Simple sparkle effect to show it's collectible
             if (Math.sin(this.bounce * 2) > 0.5) {
