@@ -1,5 +1,5 @@
 // Game Configuration - ngrok URL
-const SERVER_URL = 'https://flame-runner.onrender.com';
+const SERVER_URL = window.location.origin; // Use same domain as the game
 
 // Mobile detection
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
