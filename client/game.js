@@ -364,7 +364,7 @@ function loadImages() {
     
     // Load level 5 character sprites (moved from level 4)
     const level5RunImg1 = new Image();
-    level5RunImg1.src = 'Giga.png';
+    level5RunImg1.src = 'Giga-Photoroom.png';
     level5RunImg1.onload = () => {
         console.log('Loaded level 5 run sprite 1');
     };
@@ -374,7 +374,7 @@ function loadImages() {
     level5Sprites.run.push(level5RunImg1);
     
     const level5RunImg2 = new Image();
-    level5RunImg2.src = 'Giga.png';
+    level5RunImg2.src = 'Giga-Photoroom.png';
     level5RunImg2.onload = () => {
         console.log('Loaded level 5 run sprite 2');
     };
@@ -384,7 +384,7 @@ function loadImages() {
     level5Sprites.run.push(level5RunImg2);
     
     const level5JumpImg = new Image();
-    level5JumpImg.src = 'Giga.png';
+    level5JumpImg.src = 'Giga-Photoroom.png';
     level5JumpImg.onload = () => {
         console.log('Loaded level 5 jump sprite');
     };
