@@ -23,7 +23,7 @@ app.use(helmet({
             scriptSrc: ["'self'", "'unsafe-inline'"],
             styleSrc: ["'self'", "'unsafe-inline'"],
             imgSrc: ["'self'", "data:", "blob:"],
-            connectSrc: ["'self'", "http://localhost:3000", "https://*.ngrok.io", "https://*.ngrok-free.app"]
+            connectSrc: ["'self'", "http://localhost:3000", "https://*.ngrok.io", "https://*.ngrok-free.app", "https://*.onrender.com"]
         }
     }
 }));
